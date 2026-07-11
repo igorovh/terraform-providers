@@ -1,6 +1,8 @@
 [submodule "terraform-cloudflare-zero-trust"]
 	path = terraform-cloudflare-zero-trust
 	url = https://github.com/igorovh/terraform-cloudflare-zero-trust.git
+	branch = master
 [submodule "terraform-k3s-vps-wg"]
 	path = terraform-k3s-vps-wg
 	url = https://github.com/igorovh/terraform-k3s-vps-wg.git
+	branch = master
