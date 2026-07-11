@@ -6,8 +6,8 @@ This is the main workspace for independently usable Terraform components. It is 
 
 | Component | Type | Purpose |
 | --- | --- | --- |
-| [`terraform-k3s-vps-wg`](terraform-k3s-vps-wg/) | Provider | Installs and manages a K3s cluster on existing Debian or Ubuntu VPS nodes through SSH, with optional WireGuard, UFW, and Helm addons. |
-| [`terraform-cloudflare-zero-trust`](terraform-cloudflare-zero-trust/) | Module | Manages Cloudflare Zero Trust Access applications, groups, policies, identity providers, and an optional GitHub/Discord identity-broker Worker. |
+| [`terraform-k3s-vps-wg`](https://github.com/igorovh/terraform-k3s-vps-wg) | Provider | Installs and manages a K3s cluster on existing Debian or Ubuntu VPS nodes through SSH, with optional WireGuard, UFW, and Helm addons. |
+| [`terraform-cloudflare-zero-trust`](https://github.com/igorovh/terraform-cloudflare-zero-trust) | Module | Manages Cloudflare Zero Trust Access applications, groups, policies, identity providers, and an optional GitHub/Discord identity-broker Worker. |
 
 ## Usage
 
@@ -28,7 +28,7 @@ terraform {
 }
 ```
 
-See the [provider README](terraform-k3s-vps-wg/README.md), [examples](terraform-k3s-vps-wg/examples/), and [resource reference](terraform-k3s-vps-wg/docs/resources/cluster.md).
+See the [provider README](https://github.com/igorovh/terraform-k3s-vps-wg#readme), [examples](https://github.com/igorovh/terraform-k3s-vps-wg/tree/main/examples), and [resource reference](https://github.com/igorovh/terraform-k3s-vps-wg/blob/main/docs/resources/cluster.md).
 
 ### Cloudflare Zero Trust
 
@@ -42,4 +42,4 @@ module "zero_trust" {
 }
 ```
 
-See the [module README](terraform-cloudflare-zero-trust/README.md), [examples](terraform-cloudflare-zero-trust/examples/), and [Identity Broker documentation](terraform-cloudflare-zero-trust/identity-broker/README.md).
+See the [module README](https://github.com/igorovh/terraform-cloudflare-zero-trust#readme), [examples](https://github.com/igorovh/terraform-cloudflare-zero-trust/tree/main/examples), and [Identity Broker documentation](https://github.com/igorovh/terraform-cloudflare-zero-trust/tree/main/identity-broker).

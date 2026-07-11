@@ -6,6 +6,27 @@
 - Keep providers and modules separate when they solve different problems or are imported independently.
 - Do not force shared versioning across unrelated Terraform components.
 
+## Git Submodules
+- This workspace is the `terraform-providers` Git repository. Each `terraform-*` directory is an independent Git repository tracked by the workspace as a Git submodule.
+- Clone the workspace with `git clone --recurse-submodules <workspace-url>`. For an existing clone, run `git submodule update --init --recursive`.
+- Make component changes from inside that component's directory. Commit and push them there first; this creates a new commit in the component repository.
+- Then return to the workspace, stage the component directory (the updated Gitlink), commit, and push the workspace pointer:
+
+```bash
+cd terraform-k3s-vps-wg
+git add <changed-files>
+git commit -m "..."
+git push
+
+cd ..
+git add terraform-k3s-vps-wg
+git commit -m "chore: update terraform-k3s-vps-wg"
+git push
+```
+
+- To bring a component forward to its remote's latest commit, run `git -C <component-directory> pull`, then commit the updated Gitlink in the workspace.
+- Do not commit a component's files directly from the workspace. Do not remove or manually edit `.gitmodules` unless adding, removing, or changing a submodule remote.
+
 ## Importability
 - Optimize every repo/directory for easy Terraform import from Git.
 - Each importable component should have a stable source path and tagged releases.
