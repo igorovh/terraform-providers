@@ -6,3 +6,7 @@
 	path = terraform-k3s-vps-wg
 	url = https://github.com/igorovh/terraform-k3s-vps-wg.git
 	branch = master
+[submodule "terraform-anpi"]
+	path = terraform-anpi
+	url = https://github.com/igorovh/terraform-provider-anpi.git
+	branch = master

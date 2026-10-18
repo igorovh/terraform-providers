@@ -7,6 +7,7 @@ This is the main workspace for independently usable Terraform components. It is 
 | Component | Type | Purpose |
 | --- | --- | --- |
 | [`terraform-k3s-vps-wg`](https://github.com/igorovh/terraform-k3s-vps-wg) | Provider | Installs and manages a K3s cluster on existing Debian or Ubuntu VPS nodes through SSH, with optional WireGuard, UFW, and Helm addons. |
+| [`terraform-anpi`](https://github.com/igorovh/terraform-provider-anpi) | Provider | Manages monitors, groups, notification channels, and maintenance windows of an [anpi](https://github.com/igorovh/anpi) uptime monitor through its REST API. |
 | [`terraform-cloudflare-zero-trust`](https://github.com/igorovh/terraform-cloudflare-zero-trust) | Module | Manages Cloudflare Zero Trust Access applications, groups, policies, identity providers, and an optional GitHub/Discord identity-broker Worker. |
 
 ## Usage
@@ -29,6 +30,27 @@ terraform {
 ```
 
 See the [provider README](https://github.com/igorovh/terraform-k3s-vps-wg#readme), [examples](https://github.com/igorovh/terraform-k3s-vps-wg/tree/main/examples), and [resource reference](https://github.com/igorovh/terraform-k3s-vps-wg/blob/main/docs/resources/cluster.md).
+
+### anpi
+
+Install the provider from the Terraform Registry and point it at an anpi instance with an API token:
+
+```hcl
+terraform {
+  required_providers {
+    anpi = {
+      source  = "igorovh/anpi"
+      version = "~> 0.1"
+    }
+  }
+}
+
+provider "anpi" {
+  url = "https://status.example.com" # token from ANPI_TOKEN
+}
+```
+
+See the [provider README](https://github.com/igorovh/terraform-provider-anpi#readme), [example](https://github.com/igorovh/terraform-provider-anpi/tree/master/examples/basic), and [resource reference](https://github.com/igorovh/terraform-provider-anpi/tree/master/docs/resources).
 
 ### Cloudflare Zero Trust
 
