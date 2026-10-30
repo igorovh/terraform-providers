@@ -56,7 +56,7 @@ module "example" {
 
 ## Release Signing
 - All providers are signed with one shared GPG key: `igorovh Terraform provider releases <xoxo@igor.ovh>`, fingerprint `CA95FC687324306B71B225FDD1B5A2FB0BABDE1D`, RSA 4096, no expiry.
-- The key lives in Proton Pass, vault `AI Dev`, item `Terraform Registry – GPG release signing key (igorovh)`, with the fields `Private key`, `Passphrase`, `Public key` and `Fingerprint`. The public key must also be registered in the Terraform Registry under Settings → Signing Keys.
+- The key lives in Proton Pass, vault `AI Dev`, item `Terraform Registry – GPG release signing key (igorovh)`, with the fields `Private key`, `Passphrase`, `Public key` and `Fingerprint`. The public key must also be registered for the `igorovh` namespace: HCP Terraform (app.terraform.io) → Registry → Public namespaces → `igorovh` → Settings → New GPG Key. The old registry.terraform.io settings page no longer has it.
 - Each provider repo needs the GitHub secrets `GPG_PRIVATE_KEY` and `PASSPHRASE`. Pipe them from `pass-cli` (Windows: `%LOCALAPPDATA%\Programs\ProtonPass\pass-cli.exe`), never paste them into chat. `pass-cli` adds a newline, so strip it from the passphrase:
 
 ```bash
