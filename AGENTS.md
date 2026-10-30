@@ -54,6 +54,13 @@ module "example" {
 - Zero trust management should usually start as a module if it composes existing providers such as `cloudflare`, `tailscale`, `vault`, or identity-provider resources.
 - Promote a module idea into a custom provider only when there is a real API boundary or lifecycle that Terraform cannot model cleanly with existing providers.
 
+## Release Signing
+- All providers are signed with one shared GPG key: `igorovh Terraform provider releases <xoxo@igor.ovh>`, fingerprint `CA95FC687324306B71B225FDD1B5A2FB0BABDE1D`, RSA 4096, no expiry.
+- The private key and its passphrase are in Proton Pass under `Terraform Registry – GPG release signing key (igorovh)`; the public key is registered in the Terraform Registry under Settings → Signing Keys.
+- Each provider repo needs the GitHub secrets `GPG_PRIVATE_KEY` (armored private key) and `PASSPHRASE`. Set them from files, never by pasting into chat:
+  `gh secret set GPG_PRIVATE_KEY -R igorovh/<repo> < private.asc` and `gh secret set PASSPHRASE -R igorovh/<repo> < passphrase.txt`.
+- `terraform-k3s-vps-wg` releases up to v0.1.2 were signed with the older key `6EAD21B5313A2D4D`; keep it in the Registry so those releases still verify.
+
 ## Local AGENTS.md Files
 - This file is the workspace-level default.
 - A top-level repo/directory may define its own `AGENTS.md` with more specific rules.
